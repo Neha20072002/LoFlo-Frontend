@@ -19,7 +19,7 @@ function Register() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('${API_URL}/api/users/register')
+    axios.get(`${API_URL}/api/users/register`)
       .then(response => {
         if (response.data.isAuthenticated) {
           navigate('/login');
@@ -61,7 +61,7 @@ function Register() {
 
     if (validateForm()) {
       setLoading(true);
-      axios.post('${API_URL}/api/users/register', { name, email, password })
+      axios.post(`${API_URL}/api/users/register`, { name, email, password })
         .then(response => {
           toast.success('Registration successful!', {
             style: { backgroundColor: '#6a994e', color: '#fff' },
