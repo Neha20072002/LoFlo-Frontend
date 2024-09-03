@@ -19,7 +19,7 @@ function Register() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('/api/users/register')
+    axios.get('${API_URL}/api/users/register')
       .then(response => {
         if (response.data.isAuthenticated) {
           navigate('/login');
