@@ -21,7 +21,7 @@ function NewTodo() {
       return;
     }
 
-    axios.post(`/api/todos/user/${user.id}`, { description })
+    axios.post(`${API_URL}/api/todos/user/${user.id}`, { description })
       .then(response => {
         toast.success('ToDo Added successfully', {
           style: { backgroundColor: '#6a994e', color: '#fff' }, // Custom success style
