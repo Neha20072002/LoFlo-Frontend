@@ -16,7 +16,7 @@ function EditTodo() {
   useEffect(() => {
     const fetchTodo = async () => {
       try {
-        const response = await axios.get(`/api/todos/${id}`);
+        const response = await axios.get(`${API_URL}/api/todos/${id}`);
         const { description, isComplete } = response.data;
         setDescription(description);
         setIsComplete(isComplete);
@@ -44,7 +44,7 @@ function EditTodo() {
   }, [id]);
 
   const updateTodo = (id, description, isComplete, user) => {
-    axios.put(`/api/todos/${id}`, { description, isComplete, userId: user.id })
+    axios.put(`${API_URL}/api/todos/${id}`, { description, isComplete, userId: user.id })
       .then(response => {
         toast.success('ToDo Edited successfully', {
           style: { backgroundColor: '#6a994e', color: '#fff' }, // Customize success toast
